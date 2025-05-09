@@ -1,11 +1,10 @@
-"use strict";
+`use strict`;
+const categories = document.querySelector("#categories");
+const number = categories.querySelectorAll("li.item");
+console.log(`Number of categories: ${number.length}`);
 
-function makeTransaction(quantity, pricePerDroid) {
-  return `You ordered ${quantity} droids worth ${
-    quantity * pricePerDroid
-  } credits!`;
-}
-
-console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+const itemCategories = document.querySelectorAll(".item");
+itemCategories.forEach((item) => {
+  console.log(`Category: ${item.querySelector("h2").textContent}`);
+  console.log(`Elements: ${item.querySelectorAll("ul li").length}`);
+});
