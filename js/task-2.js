@@ -30,14 +30,11 @@ const gallery = document.querySelector(".gallery");
 console.log(gallery);
 gallery.classList.add("list");
 
-images.forEach((img) => {
-  const li = document.createElement("li");
-  li.classList.add("list-item");
-  const imgEl = document.createElement("img");
+const marcup = images
+  .map(
+    (image) =>
+      `<li class="list-item"><img class="image" src="${image.url}" alt="${image.alt}"></li>`
+  )
+  .join("");
 
-  imgEl.classList.add("image");
-  imgEl.setAttribute("alt", img.alt);
-  imgEl.setAttribute("src", img.url);
-  li.appendChild(imgEl);
-  gallery.appendChild(li);
-});
+gallery.insertAdjacentHTML("beforeend", marcup);
